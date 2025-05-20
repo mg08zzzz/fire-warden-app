@@ -1,38 +1,210 @@
-.App {
+body {
+  font-family: 'Raleway', sans-serif;
+  background-image: url('./assets/uni.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  margin: 0;
+  padding: 0;
+  color: #ffffff;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 2rem;
+  border-radius: 12px;
+  backdrop-filter: blur(4px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
   text-align: center;
+  color: #ffffff;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.tab-switcher {
+  text-align: center;
+  margin-bottom: 1.5rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.tab-switcher button {
+  margin: 0 1rem;
+  padding: 0.6rem 1.2rem;
+  font-weight: bold;
+  border-radius: 6px;
+  border: none;
+  background: #004080;
+  color: white;
+  cursor: pointer;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+form.form-card {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 10px;
+  margin-bottom: 2rem;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1rem;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+}
+
+form input,
+form select {
+  padding: 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background: rgba(255, 255, 255, 0.85);
+  font-size: 1rem;
+  flex: 1 1 200px;
+  min-width: 150px;
+}
+
+form button[type="submit"] {
+  background-color: #004080;
+  color: white;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+form button[type="submit"]:hover {
+  background-color: #0066cc;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+th, td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  text-align: left;
+}
+
+table th {
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.95rem;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+table button {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-right: 0.5rem;
+  transition: background 0.2s ease;
+}
+
+table button:first-of-type {
+  background-color: #ffa500; /* Edit */
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+table button:first-of-type:hover {
+  background-color: #e59400;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
+table button:last-of-type {
+  background-color: #dc3545;
+  color: white;
+}
+
+table button:last-of-type:hover {
+  background-color: #b02a37;
+}
+
+.monitor .search-box {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 1rem;
+  margin-bottom: 1.2rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.warden-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.card {
+  flex: 1 1 300px;
+  background: #f8f8f8;
+  border: 1px solid #ccc;
+  border-left: 4px solid #004080;
+  border-radius: 6px;
+  padding: 1rem;
+  box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.1);
+  color: #000;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.card-body p {
+  margin: 0.2rem 0;
+}
+
+.staff-number {
+  color: #666;
+}
+
+.fade-container {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeIn 0.4s ease forwards;
+}
+
+@keyframes fadeIn {
   to {
-    transform: rotate(360deg);
+    opacity: 1;
+    transform: translateY(0);
   }
+}
+
+.btn {
+  padding: 0.7rem 1.5rem;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+  margin-right: 0.5rem;
+  transition: background-color 0.3s ease;
+}
+
+.btn.primary {
+  background-color: #004080;
+  color: white;
+}
+
+.btn.primary:hover {
+  background-color: #0059b3;
+}
+
+.btn.secondary {
+  background-color: transparent;
+  color: white;
+  border: 1px solid #ccc;
+}
+
+.btn.secondary:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: #fff;
 }
