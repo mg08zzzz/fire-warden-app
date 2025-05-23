@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import WardenForm from './components/WardenForm';
+import WardenEntry from './components/WardenEntry';
 import WardenList from './components/WardenList';
 import AvailabilityMonitor from './components/AvailabilityMonitor';
 import Login from './components/Login';
@@ -38,7 +38,7 @@ function App() {
 
         {view === 'form' ? (
           <>
-            <WardenForm
+            <WardenEntry
               current={editing}
               onSave={triggerRefresh}
               onClear={() => setEditing(null)}

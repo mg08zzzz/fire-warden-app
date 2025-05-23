@@ -2,7 +2,6 @@ const express = require('express');
 const router = express.Router();
 const FireWarden = require('../models/FireWarden');
 
-// GET all wardens
 router.get('/', async (req, res) => {
   try {
     const wardens = await FireWarden.find();
@@ -12,7 +11,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-// POST create new warden entry
 router.post('/', async (req, res) => {
   const { staffNumber, firstName, surname, location } = req.body;
   const newWarden = new FireWarden({ staffNumber, firstName, surname, location });
@@ -25,7 +23,6 @@ router.post('/', async (req, res) => {
   }
 });
 
-// PUT update warden location
 router.put('/:id', async (req, res) => {
   try {
     const updated = await FireWarden.findByIdAndUpdate(
@@ -39,7 +36,6 @@ router.put('/:id', async (req, res) => {
   }
 });
 
-// DELETE a warden entry
 router.delete('/:id', async (req, res) => {
   try {
     await FireWarden.findByIdAndDelete(req.params.id);

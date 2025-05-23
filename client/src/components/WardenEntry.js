@@ -12,7 +12,7 @@ const locations = [
   "West Downs Student Village", "Winton Building", "Students’ Union"
 ];
 
-export default function WardenForm({ current, onSave, onClear }) {
+export default function WardenEntry({ current, onSave, onClear }) {
   const [formData, setFormData] = useState({
     staffNumber: '',
     firstName: '',
