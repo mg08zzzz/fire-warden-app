@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import api from '../api';
 
 const locations = [
@@ -20,10 +20,15 @@ export default function WardenEntry({ current, onSave, onClear }) {
     location: ''
   });
 
+  const resetForm = useCallback(() => {
+    setFormData({ staffNumber: '', firstName: '', surname: '', location: '' });
+    onClear();
+  }, [onClear]);
+
   useEffect(() => {
     if (current) setFormData(current);
     else resetForm();
-  }, [current]);
+  }, [current, resetForm]);
 
   const handleChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -39,26 +44,50 @@ export default function WardenEntry({ current, onSave, onClear }) {
     onSave();
   };
 
-  const resetForm = () => {
-    setFormData({ staffNumber: '', firstName: '', surname: '', location: '' });
-    onClear();
-  };
-
   return (
     <form onSubmit={handleSubmit} className="form-card">
       <h2>{current ? "Edit" : "Log"} Warden Location</h2>
-      <input name="staffNumber" placeholder="Staff Number" value={formData.staffNumber} onChange={handleChange} required />
-      <input name="firstName" placeholder="First Name" value={formData.firstName} onChange={handleChange} required />
-      <input name="surname" placeholder="Surname" value={formData.surname} onChange={handleChange} required />
-      <select name="location" value={formData.location} onChange={handleChange} required>
+      <input
+        name="staffNumber"
+        placeholder="Staff Number"
+        value={formData.staffNumber}
+        onChange={handleChange}
+        required
+      />
+      <input
+        name="firstName"
+        placeholder="First Name"
+        value={formData.firstName}
+        onChange={handleChange}
+        required
+      />
+      <input
+        name="surname"
+        placeholder="Surname"
+        value={formData.surname}
+        onChange={handleChange}
+        required
+      />
+      <select
+        name="location"
+        value={formData.location}
+        onChange={handleChange}
+        required
+      >
         <option value="">Select Location</option>
         {locations.map(loc => (
           <option key={loc} value={loc}>{loc}</option>
         ))}
       </select>
       <div className="button-row">
-        <button type="submit" className="btn primary">{current ? "Update" : "Submit"}</button>
-        {current && <button type="button" className="btn secondary" onClick={resetForm}>Cancel</button>}
+        <button type="submit" className="btn primary">
+          {current ? "Update" : "Submit"}
+        </button>
+        {current && (
+          <button type="button" className="btn secondary" onClick={resetForm}>
+            Cancel
+          </button>
+        )}
       </div>
     </form>
   );
